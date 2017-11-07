@@ -72,7 +72,7 @@ def courses(teach_dict):
             class_list.append(course)
     return class_list
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '''Create a function named most_courses that takes our good ol' teacher dictionary.
 most_courses should return the name of the teacher with the most courses. You might need to hold onto some sort of max count variable.'''
