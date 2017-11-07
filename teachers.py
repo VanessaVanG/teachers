@@ -12,8 +12,26 @@ def num_teachers(teach_dict):
     #return how many teachers are in the dictionary
     return len(teach_dict)
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'''From Andren: "That said if I had to come up with some complaints about your code it would mostly be the nested loop that you use in the num_courses and courses function. Looping is a relatively expensive operation that doesn't scale well (the more items the longer it takes) and this becomes even more true when you place a loop within another loop.
+
+It can also easily become hard to keep track of what is happening when you nest loops under each other. Because of that you should generally try to stay away from nested loops whenever you can. "'''
+
 '''Create a new function named num_courses that will receive the same dictionary as its only argument.
 The function should return the total number of courses for all of the teachers.'''
+
+#My revised function based on Andren's feedback
+
+def num_courses(teach_dict):
+    #set course_num to 0
+    course_num = 0
+    #Loop through the values only
+    for courses in teach_dict.values():
+        #add the courses length to course_num
+        course_num += len(courses)
+    return course_num
+
+#My original function
 def num_courses(teach_dict):
     #initialize count
     course_num = 0
@@ -27,6 +45,22 @@ def num_courses(teach_dict):
 
 '''For this step, make another new function named courses that will, again, take the dictionary of teachers and courses.
 courses, though, should return a single list of all of the available courses in the dictionary. No teachers, just course names!'''
+
+#My revised function
+
+def courses(teach_dict):
+    #make an empty list
+    class_list = []
+    #Loop through the values only
+    for courses in teach_dict.values():
+        #add each course to the list
+        class_list.extend(courses) 
+        #this could also be 
+        #class_list += courses
+    return class_list
+
+
+#My original function
 def courses(teach_dict):
     #make a list
     class_list = []
@@ -37,6 +71,8 @@ def courses(teach_dict):
             #add each to the list
             class_list.append(course)
     return class_list
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '''Create a function named most_courses that takes our good ol' teacher dictionary.
 most_courses should return the name of the teacher with the most courses. You might need to hold onto some sort of max count variable.'''
